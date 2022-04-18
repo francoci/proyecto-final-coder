@@ -1,21 +1,20 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import NavBar from './components/NavBar';
+import CartWidget from './components/CartWidget';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
-  return (
-    <>
-      <h1>Hola mundo! Este es mi primer proyecto en React :)</h1>
-      <h2>Probando listas</h2>
-      <ul>
-        <li>Hola</li>
-        <li>esto</li>
-        <li>es</li>
-        <li>una</li>
-        <li>lista</li>
-        <li>Codigo JS 100 - 42 = {100 - 42}</li>
-      </ul>
-    </>
-  );
+
+    return(
+        <>
+            <NavBar>
+                <CartWidget></CartWidget>
+            </NavBar>
+
+            <ItemListContainer></ItemListContainer>
+        </>
+    );
 }
 
 export default App;
