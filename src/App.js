@@ -12,7 +12,7 @@ function App() {
                 <CartWidget></CartWidget>
             </NavBar>
 
-            <ItemListContainer></ItemListContainer>
+            <ItemListContainer greeting="Proximamente"></ItemListContainer>
         </>
     );
 }
