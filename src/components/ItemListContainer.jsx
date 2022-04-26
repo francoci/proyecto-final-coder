@@ -3,7 +3,8 @@ const ItemListContainer = (props) => {
     return(
         <>
             <div className="msgContainer">
-                <h1>{props.greeting}</h1>
+                {/* <h1>{props.greeting}</h1> */}
+                {props.children}
             </div>
         </>
     )
