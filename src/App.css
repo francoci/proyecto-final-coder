@@ -116,6 +116,22 @@ nav ul li {
   height: 100%;
   display: inline-block;
 
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  transition: all 0.3s ease;
+}
+
+.linkLong {
+  width: 140px;
+}
+
+nav ul li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 600;
@@ -126,11 +142,7 @@ nav ul li {
   vertical-align: middle;
   letter-spacing: 0.20rem;
 
-  cursor: pointer;
-  box-sizing: border-box;
-  overflow: hidden;
-
-  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .shoppingCartIcon {
@@ -142,10 +154,26 @@ nav ul li {
 }
 
 nav ul li:hover,
-.shoppingCartIcon:hover {
+.shoppingCartIcon:hover,
+.navigationContainer a:hover {
   color: #E6B020;
 }
 
+.navigationContainer {
+  width: 100%;
+  height: 40px;
+  margin: 15px 0;
+}
+
+.navigationContainer a, span {
+  color: #646464;
+  font-weight: 600;
+  font-size: 16px;
+
+  text-decoration: none;
+  letter-spacing: 0.1rem;
+  transition: all 0.3s ease;
+}
 
 /* -------- Item Component Styles -------- */
 .filmContainer {
@@ -220,7 +248,7 @@ nav ul li:hover,
 	filter: blur(2px);
 }
 
-.filmText button {
+.filmText a {
   width: 120px;
   height: 30px;
   display: block;
@@ -229,9 +257,104 @@ nav ul li:hover,
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 400;
+  color: black;
+
+  text-align: center;
+  text-decoration: none;
+  line-height: 30px;
 
   background: none;
   cursor: pointer;
   border: 1px solid black;
   text-transform: uppercase;
 } 
+
+/* -------- ItemDetail Component Styles -------- */
+
+.filmCard {
+  width: 900px;
+  height: auto;
+
+  margin: 100px auto;
+  padding: 0;
+
+  background-color: white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.filmCardImage {
+  width: 212px;
+  height: 325px;
+  float: left;
+}
+
+.filmCardImage  img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.filmCardText {
+  width: 650px;
+  height: auto;
+  padding: 0 20px 0 0;
+  float: right;
+  box-sizing: border-box;
+}
+
+.filmCardText h3 {
+  font-size: 24px;
+}
+
+#filmCardPrice {
+  font-size: 22px;
+}
+
+/*-------------------------- LOADER --------------------------*/
+/*Fondo negro / fade*/
+.loader {
+	width: 100%;
+	height: 100vh;
+
+	background-color: rgba(0,0,0,0.6);
+	position: fixed;
+	top: 0;
+	z-index: 1001;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+/*Bolitas efecto animacion*/
+.loader > span {
+	display: inline-block;
+	background-color: #FF8000;
+	width: 0px;
+	height: 0px;
+	border-radius: 50%;
+	margin: 0 8px;
+	transform: translate3d(0);
+	animation: bounce 0.6s infinite alternate;
+}
+
+.loader > span:nth-child(2) {
+	background-color: #00E054;
+	animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+	background-color: #40BCF4;
+	animation-delay: 0.4s;
+}
+
+/*Defino la animación 'Bounce' */
+@keyframes bounce {
+	to {
+		width: 16px;
+		height: 16px;
+		transform: translate3d(0, -16px, 0);
+	}
+}

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logoFinal from '../img/logo6.png';
 
 const NavBar = (props) => {
@@ -36,16 +37,19 @@ const NavBar = (props) => {
         <>
             <nav>
                 <div style={styles.logoContainer}>
-                    <img src={logoFinal} alt="Forever Cinema Logo" style={styles.logoImg} />
+                    <Link to='/'>
+                        <img src={logoFinal} alt="Forever Cinema Logo" style={styles.logoImg} />
+                    </Link>
                 </div>
 
                 <div style={styles.navBtnContainer}>
                     <ul>
-                        <li>Peliculas</li>
-                        <li>Series</li>
-                        <li>Accion</li>
-                        <li>Terror</li>
-                        <li>Sci-Fi</li>
+                        <li className='linkLong'><Link to='/category/0'>Peliculas</Link></li>
+                        <li><Link to='/category/1'>Accion</Link></li>
+                        <li><Link to='/category/2'>Terror</Link></li>
+                        <li><Link to='/category/3'>Sci-Fi</Link></li>
+                        <li><Link to='/category/4'>Drama</Link></li>
+                        <li><Link to='/category/5'>Comedia</Link></li>
                     </ul>
                 </div>
 

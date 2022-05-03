@@ -5,17 +5,43 @@ import CartWidget from './components/CartWidget';
 import ItemListContainer from './components/ItemListContainer';
 import ItemList from './components/ItemList';
 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import HomeContainer from './components/HomeContainer';
+
 function App() {
 
     return(
         <>
-            <NavBar>
-                <CartWidget></CartWidget>
-            </NavBar>
+            <BrowserRouter>
 
-            <ItemListContainer greeting="Proximamente">
-                <ItemList></ItemList>
-            </ItemListContainer>
+                <NavBar>
+                    <CartWidget></CartWidget>
+                </NavBar>
+
+                <Routes>
+                    <Route path='/' element={<HomeContainer greeting="Proximamente"></HomeContainer>}
+                    />
+
+                    <Route path='/category' 
+                        element={
+                            <ItemListContainer greeting="Proximamente">
+                                <ItemList></ItemList>
+                            </ItemListContainer>
+                        }
+                    />
+
+                    <Route path='/category/:filmGenre' element={
+                            <ItemListContainer greeting="Proximamente">
+                                <ItemList></ItemList>
+                            </ItemListContainer>
+                        }
+                    />
+
+                    <Route path='/item/:filmId' element={<ItemDetailContainer/>}/>
+                </Routes>
+
+            </BrowserRouter>
 
         </>
     );
