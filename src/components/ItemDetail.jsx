@@ -7,19 +7,13 @@ const ItemDetail = ({filmData}) => {
 
   const cartContext = useContext(CartContext);
 
-  const [qty, setQty] = useState();
-  const [endPurchase, setEndPurchase] = useState(false);
+  const [qty, setQty] = useState(0);
 
   const onAdd = (quantityToAdd) => {
 
     	setQty(quantityToAdd);
 
 			cartContext.addItem(filmData.id, quantityToAdd);
-
-			if(!endPurchase)
-      {
-        setEndPurchase(true);
-      } 
 
 			console.log(cartContext.cart);
   }
@@ -35,10 +29,11 @@ const ItemDetail = ({filmData}) => {
           <h3>{filmData.title}</h3>
           <p>{filmData.description}</p>
           <h4 id="filmCardPrice" className="price">$ {filmData.price}</h4>
-          <ItemCount stock={filmData.stock} onAdd={onAdd}></ItemCount>
 
           { 
-            endPurchase ? <Link to='/cart' className="cartRedirect">Terminar compra</Link> : ''
+            qty != 0 ? 
+						<Link to='/cart' className="cartRedirect">Terminar compra</Link> : 
+						<ItemCount stock={filmData.stock} onAdd={onAdd}></ItemCount>
           }
           
         </div>
