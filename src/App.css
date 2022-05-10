@@ -311,6 +311,82 @@ nav ul li:hover,
   font-size: 22px;
 }
 
+.addToCart,
+.cartRedirect {
+  width: 80px;
+  height: 40px;
+  margin: 10px 0 10px 10px;
+  float: left;
+
+  color: white;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.01rem;
+  text-transform: uppercase;
+
+  text-align: center;
+  line-height: 35px;
+  vertical-align: middle;
+
+  background-color: #32353B;
+  border: none;
+  cursor: pointer;
+}
+
+.cartRedirect {
+  width: 210px;
+  display: block;
+  margin: 0;
+  clear: both;
+  text-decoration: none;
+}
+
+.addToCartIcon {
+  margin-right: 10px;
+}
+
+.qtyCounter {
+  width: 120px;
+  height: 40px;
+  margin: 10px 0;
+  padding: 0;
+  float: left;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.qtyBtns {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  float: left;
+
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
+
+  border: none;
+  background-color: #32353B;
+
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.qtyText {
+  width: 40px;
+  height: 40px;
+  float: left;
+
+  font-size: 18px;
+  text-align: center;
+  line-height: 40px;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 /*-------------------------- LOADER --------------------------*/
 /*Fondo negro / fade*/
 .loader {

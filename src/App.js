@@ -9,40 +9,47 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import HomeContainer from './components/HomeContainer';
 
+import CartProvider from './context/CartContext';
+
 function App() {
 
     return(
         <>
-            <BrowserRouter>
+            <CartProvider>
+                
+                <BrowserRouter>
 
-                <NavBar>
-                    <CartWidget></CartWidget>
-                </NavBar>
+                    <NavBar>
+                        <CartWidget></CartWidget>
+                    </NavBar>
 
-                <Routes>
-                    <Route path='/' element={<HomeContainer greeting="Proximamente"></HomeContainer>}
-                    />
+                    <Routes>
+                        <Route path='/' element={<HomeContainer greeting="Proximamente"></HomeContainer>}
+                        />
 
-                    <Route path='/category' 
-                        element={
-                            <ItemListContainer greeting="Proximamente">
-                                <ItemList></ItemList>
-                            </ItemListContainer>
-                        }
-                    />
+                        <Route path='/category' 
+                            element={
+                                <ItemListContainer greeting="Proximamente">
+                                    <ItemList></ItemList>
+                                </ItemListContainer>
+                            }
+                        />
 
-                    <Route path='/category/:filmGenre' element={
-                            <ItemListContainer greeting="Proximamente">
-                                <ItemList></ItemList>
-                            </ItemListContainer>
-                        }
-                    />
+                        <Route path='/category/:filmGenre' element={
+                                <ItemListContainer greeting="Proximamente">
+                                    <ItemList></ItemList>
+                                </ItemListContainer>
+                            }
+                        />
 
-                    <Route path='/item/:filmId' element={<ItemDetailContainer/>}/>
-                </Routes>
+                        <Route path='/item/:filmId' element={<ItemDetailContainer/>}/>
 
-            </BrowserRouter>
+                        <Route path='/cart' element={'completar'}/>
+                    </Routes>
 
+                </BrowserRouter>
+
+            </CartProvider>
         </>
     );
 }

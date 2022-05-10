@@ -9,7 +9,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '3',
         price : 100.00, 
-        pictureUrl : 'img/films/bttf.png'
+        pictureUrl : 'img/films/bttf.png',
+        stock : 10
     },
     {
         id : '2', 
@@ -17,7 +18,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '2',
         price : 100.00, 
-        pictureUrl : 'img/films/carrie.png'
+        pictureUrl : 'img/films/carrie.png',
+        stock : 10
     },
     {
         id : '3', 
@@ -25,7 +27,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '2',
         price : 100.00, 
-        pictureUrl : 'img/films/friday.png'
+        pictureUrl : 'img/films/friday.png',
+        stock : 10
     },
     {
         id : '4', 
@@ -33,7 +36,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '4',
         price : 100.00, 
-        pictureUrl : 'img/films/godfather1.png'
+        pictureUrl : 'img/films/godfather1.png',
+        stock : 10
     },
     {
         id : '5', 
@@ -41,7 +45,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '1',
         price : 100.00, 
-        pictureUrl : 'img/films/killbill1.png'
+        pictureUrl : 'img/films/killbill1.png',
+        stock : 10
     },
     {
         id : '6', 
@@ -49,7 +54,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '2',
         price : 100.00, 
-        pictureUrl : 'img/films/nightmareelmstreetorig.png'
+        pictureUrl : 'img/films/nightmareelmstreetorig.png',
+        stock : 10
     },
     {
         id : '7', 
@@ -57,7 +63,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '2',
         price : 100.00, 
-        pictureUrl : 'img/films/psycho.png'
+        pictureUrl : 'img/films/psycho.png',
+        stock : 10
     },
     {
         id : '8', 
@@ -65,7 +72,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '1',
         price : 100.00, 
-        pictureUrl : 'img/films/pulpfiction.png'
+        pictureUrl : 'img/films/pulpfiction.png',
+        stock : 10
     },
     {
         id : '9', 
@@ -73,7 +81,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '2',
         price : 100.00, 
-        pictureUrl : 'img/films/scream.png'
+        pictureUrl : 'img/films/scream.png',
+        stock : 10
     },
     {
         id : '10', 
@@ -81,7 +90,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '2',
         price : 100.00, 
-        pictureUrl : 'img/films/shining.png'
+        pictureUrl : 'img/films/shining.png',
+        stock : 10
     },
     {
         id : '11', 
@@ -89,7 +99,8 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '5',
         price : 100.00, 
-        pictureUrl : 'img/films/superbad.png'
+        pictureUrl : 'img/films/superbad.png',
+        stock : 10
     },
     {
         id : '12', 
@@ -97,6 +108,7 @@ export const films = [
         description : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi recusandae impedit soluta eum exercitationem sunt reprehenderit veniam voluptate esse hic harum.', 
         genre : '5',
         price : 100.00, 
-        pictureUrl : 'img/films/themask.png'
+        pictureUrl : 'img/films/themask.png',
+        stock : 10
     }
 ]

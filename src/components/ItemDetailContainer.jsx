@@ -24,14 +24,14 @@ const ItemDetailContainer = () => {
         getFilmDetail.then( (result) => {
 
             // Caso exitoso
-            console.log("Film detail retrieved", result);
+            // console.log("Film detail retrieved", result);
             setFilm(result);
             setLoading(false);
 
         }).catch( (err) => {
 
             // Error
-            console.log("Error retrieving film details", err);
+            // console.log("Error retrieving film details", err);
 
         });
 
