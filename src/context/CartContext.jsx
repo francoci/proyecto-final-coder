@@ -39,10 +39,10 @@ const CartProvider = ({ children }) => {
 
     const removeItem = ( itemId ) => {
 
-        if (isInCart( itemId ) != undefined) {
+        if (isInCart( itemId )) {
 
             setCart( currentCart => {
-                return currentCart.splice(currentCart.indexOf(itemId), 1);
+                return currentCart.splice(getCartIndex(itemId), 1);
             })
 
         }
