@@ -15,7 +15,7 @@ const ItemDetail = ({filmData}) => {
 
 			cartContext.addItem(filmData.id, quantityToAdd);
 
-			console.log(cartContext.cart);
+			console.log('Updated cart ' + cartContext.cart);
   }
 
   return (
@@ -30,11 +30,11 @@ const ItemDetail = ({filmData}) => {
           <p>{filmData.description}</p>
           <h4 id="filmCardPrice" className="price">$ {filmData.price}</h4>
 
-          { 
-            qty != 0 ? 
+					{
+						qty != 0 ? 
 						<Link to='/cart' className="cartRedirect">Terminar compra</Link> : 
 						<ItemCount stock={filmData.stock} onAdd={onAdd}></ItemCount>
-          }
+					}
           
         </div>
 

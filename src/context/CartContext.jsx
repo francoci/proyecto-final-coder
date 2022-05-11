@@ -11,25 +11,28 @@ export const CartContext = createContext({
 const CartProvider = ({ children }) => {
   
     const [cart, setCart] = useState([])
-  
-    const addItem = ( item, quantity ) => {
-
+ 
+    const addItem = (item, quantity) => {
+        
         if (isInCart( item )) 
         {
             console.log('IM EDITING PRODUCT IN CART');
-            setCart( currentCart => {
-                return currentCart[currentCart.indexOf(currentCart.find( c => c.item == item ))].quantity = quantity
-            })
+            console.log('Current cart ' + cart);
 
+            console.log('INDEX:' + getCartIndex(item));
+
+            setCart((currentCart => {
+                return [...currentCart, [getCartIndex(item)].quantity = quantity];
+            }));
         }
         else 
         {
             console.log('IM ADDING PRODUCT TO CART');
-            setCart( cart.concat({
-                'item' : item,
-                'quantity' : quantity}
-                )
-            ) 
+            console.log('Current cart ' + cart);
+
+            setCart(currentCart => {
+                return [...currentCart, {'item' : item, 'quantity' : quantity}];
+            });
         }
         
     }
@@ -56,12 +59,20 @@ const CartProvider = ({ children }) => {
     
     const isInCart = ( itemId ) => {
 
-        if(cart.find( c => c.item == itemId ) != undefined)
+        if(cart.findIndex(c => c.item == itemId) >= 0)
         {
             return true;
         }
         
         return false;
+        
+    }
+
+    const getCartIndex = ( itemId ) => {
+
+        let index = cart.findIndex(c => c.item == itemId);
+
+        return index;
     }
 
     const context = {
@@ -69,7 +80,8 @@ const CartProvider = ({ children }) => {
       addItem,
       removeItem,
       clear,
-      isInCart
+      isInCart,
+      getCartIndex
     }
   
     return (
