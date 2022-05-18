@@ -1,21 +1,19 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
 import ItemCount from './ItemCount';
+
+import { useCartContext } from "../context/CartContext";
 
 const ItemDetail = ({filmData}) => {
 
-  const cartContext = useContext(CartContext);
-
   const [qty, setQty] = useState(0);
+
+  const { addItem } = useCartContext();
 
   const onAdd = (quantityToAdd) => {
 
     	setQty(quantityToAdd);
-
-			cartContext.addItem(filmData.id, quantityToAdd);
-
-			console.log('Updated cart ' + cartContext.cart);
+		addItem(filmData, quantityToAdd);
   }
 
   return (
@@ -30,11 +28,11 @@ const ItemDetail = ({filmData}) => {
           <p>{filmData.description}</p>
           <h4 id="filmCardPrice" className="price">$ {filmData.price}</h4>
 
-					{
-						qty != 0 ? 
-						<Link to='/cart' className="cartRedirect">Terminar compra</Link> : 
-						<ItemCount stock={filmData.stock} onAdd={onAdd}></ItemCount>
-					}
+				{
+					qty != 0 ? 
+					<Link to='/cart' className="cartRedirect">Terminar compra</Link> : 
+					<ItemCount stock={filmData.stock} onAdd={onAdd}></ItemCount>
+				}
           
         </div>
 

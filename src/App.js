@@ -10,11 +10,13 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import HomeContainer from './components/HomeContainer';
 
 import CartProvider from './context/CartContext';
+import AppContextProvider from './context/AppContext';
 
 function App() {
 
     return(
         <>
+        <AppContextProvider>
             <CartProvider>
                 
                 <BrowserRouter>
@@ -50,6 +52,7 @@ function App() {
                 </BrowserRouter>
 
             </CartProvider>
+        </AppContextProvider>
         </>
     );
 }

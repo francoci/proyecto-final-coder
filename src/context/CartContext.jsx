@@ -1,78 +1,74 @@
-const { createContext, useState } = require("react");
+const { createContext, useState, useContext } = require("react");
 
-export const CartContext = createContext({
-    cart: [],
-    addItem: () => {},
-    removeItem: () => {},
-    clear: () => {},
-    isInCart: () => {}
-})
+export const CartContext = createContext({})
+
+export const useCartContext = () => useContext(CartContext);
 
 const CartProvider = ({ children }) => {
   
     const [cart, setCart] = useState([])
- 
-    const addItem = (item, quantity) => {
-        
-        if (isInCart( item )) 
-        {
-            console.log('IM EDITING PRODUCT IN CART');
-            console.log('Current cart ' + cart);
-
-            console.log('INDEX:' + getCartIndex(item));
-
-            setCart((currentCart => {
-                return [...currentCart, [getCartIndex(item)].quantity = quantity];
-            }));
-        }
-        else 
-        {
-            console.log('IM ADDING PRODUCT TO CART');
-            console.log('Current cart ' + cart);
-
-            setCart(currentCart => {
-                return [...currentCart, {'item' : item, 'quantity' : quantity}];
-            });
-        }
-        
+    
+    // Funcion para validar si el item esta en el carrito
+    const isInCart = ( itemId ) => {
+        return cart.find(prod => prod.id === itemId);
     }
 
-    const removeItem = ( itemId ) => {
+    // Funcion para agregar un producto al carrito
+    const addItem = (item, quantity) => {
 
-        if (isInCart( itemId )) {
+        // Trabajamos sobre este carrito nuevo para
+        // no usar el original y romper los datos
+        const newCart = [...cart];
 
-            setCart( currentCart => {
-                return currentCart.splice(getCartIndex(itemId), 1);
-            })
+        // Guardamos el resultado de isInCart para el producto
+        // en una variable. Tambien se puede hacer directo en el if
+        const productInCart = isInCart(item.id);
 
+        // Si el producto (item) esta en el cart
+        if(productInCart) {
+
+            // Buscamos el producto en el cart y modificamos la propiedad
+            // qty. Le sumamos el valor de quantity, que llega como parametro
+            newCart[newCart.findIndex(prod => prod.id === productInCart.id)].qty += quantity;
+
+            // Seteamos el state de cart con el newCart
+            setCart(newCart);
+            return 
         }
         
+        // No esta en el cart
+        // Le concatenamos la propiedad qty al producto (item)
+        item.qty = quantity;
+
+        // Seteamos el cart con el newCart, agregandole el item nuevo
+        setCart([...newCart, item]);
+    }
+
+    // Funcion para eliminar un producto del carrito
+    const removeItem = ( itemId ) => {
+
+        // Trabajamos sobre este carrito nuevo para no usar el original y romper los datos
+        const newCart = [...cart];
+
+        // Guardamos el resultado de isInCart para el producto en una variable.
+        const productInCart = isInCart(itemId);
+
+        // Si el producto no esta en el cart
+        if(!productInCart){
+            return
+        }
+
+        // Usamos filter para sacar el producto a eliminar del cart
+        const deleteProduct = newCart.filter((prod) => prod.id !== itemId);
+
+        // Seteamos el cart sin el producto eliminado
+        setCart(deleteProduct);
     }
 
     const clear = () => {
 
-        setCart( currentCart => {
-            return currentCart.length = 0;
-        })
-
-    }
-    
-    const isInCart = ( itemId ) => {
-
-        if(cart.findIndex(c => c.item == itemId) >= 0)
-        {
-            return true;
-        }
-        
-        return false;
-        
-    }
-
-    const getCartIndex = ( itemId ) => {
-
-        let index = cart.findIndex(c => c.item == itemId);
-
-        return index;
+        // Seteamos el cart como un array vacio
+        setCart([]);
     }
 
     const context = {
@@ -80,10 +76,11 @@ const CartProvider = ({ children }) => {
       addItem,
       removeItem,
       clear,
-      isInCart,
-      getCartIndex
+      isInCart
     }
-  
+    
+    console.log(cart);
+
     return (
       <CartContext.Provider value={ context }>
         {children}
