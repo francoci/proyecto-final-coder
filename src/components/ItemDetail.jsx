@@ -12,7 +12,7 @@ const ItemDetail = ({filmData}) => {
 
   const onAdd = (quantityToAdd) => {
 
-    	setQty(quantityToAdd);
+    setQty(quantityToAdd);
 		addItem(filmData, quantityToAdd);
   }
 

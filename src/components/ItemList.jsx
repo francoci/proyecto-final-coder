@@ -1,8 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { films as filmsData } from "../data/films";
+// import { films as filmsData } from "../data/films";
 import { genres as genresData } from "../data/genres";
 import Item from "./Item";
+
+import { getFirestore, doc, getDoc, getDocs, query, collection, where } from "firebase/firestore";
 
 const ItemList = () => {
 
@@ -19,49 +21,51 @@ const ItemList = () => {
     // Se ejecuta en el montado
     useEffect(() => {
 
-        // Simulamos con una promise, usando setTimeout de 2s
-        const getFilms = new Promise( (resolve, reject) => {
+        const db = getFirestore();
 
-            setLoading(true);
-            
-            setTimeout( () => {
-                
-                if(filmGenre != '0') {
-                    
-                    setNavigation( 
-                        <>
-                            <span>| </span>
-                            <Link to={'/category/0'}>Películas</Link> 
-                            <span> | {genresData.find(g => g.id == filmGenre).caption}</span>
-                        </>
-                    );
-                    
-                    resolve(filmsData.filter( f => f.genre == filmGenre));
+        setLoading(true);
+        
+        if(filmGenre == '0') {
+
+            const filmsCollection = collection(db, "items");
+            getDocs(filmsCollection).then((snapshot) => {
+
+                if(snapshot.size > 0) {
+                    const filmsData = snapshot.docs.map((doc) => ({ id : doc.id, ...doc.data() }))
+                    setFilms(filmsData);
                 }
-                else 
-                {
-                    setNavigation( <span>| Películas |</span> );
-                    resolve(filmsData);
-                }
+        
+            });
 
-            }, 2000)
-
-        });
-
-        getFilms.then( (result) => {
-
-            // Caso exitoso
-            console.log("Films retrieved", result);
-            setFilms(result);
+            setNavigation( <span>| Películas |</span> );
             setLoading(false);
+        }
+        else 
+        {
+            const filmsCollection = collection(db, "items");
 
-        }).catch( (err) => {
+            const q = query(
+                filmsCollection, 
+                where('genre', '==', `${filmGenre}`)
+            );
 
-            // Error
-            console.log("Error retrieving films ", err);
+            getDocs(q).then((snapshot) => {
 
-        });
+                if(snapshot.size > 0) {
+                    setFilms(snapshot.docs.map((doc) => ({ id : doc.id, ...doc.data() })));
+                }
+                
+            });
 
+            setNavigation( 
+                <>
+                    <span>| </span>
+                    <Link to={'/category/0'}>Películas</Link> 
+                    <span> | {genresData.find(g => g.id == filmGenre).caption}</span>
+                </>
+            );
+            setLoading(false);
+        }
 
     }, [filmGenre]);
 

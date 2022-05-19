@@ -159,6 +159,25 @@ nav ul li:hover,
   color: #E6B020;
 }
 
+.itemAmt {
+  width: 25px;
+  height: 25px;
+
+  position: relative;
+  top: -40px;
+  left: 20px;
+
+  color: white;
+  font-weight: 600;
+  text-align: center;
+  line-height: 22px;
+
+  border-radius: 50%;
+  background-color: red;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .navigationContainer {
   width: 100%;
   height: 40px;
@@ -383,6 +402,164 @@ nav ul li:hover,
   text-align: center;
   line-height: 40px;
 
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* -------- Cart Component Styles -------- */
+.cartView {
+  width: 1200px;
+  height: auto;
+  margin: 100px auto;
+
+  border-radius: 20px;
+  background-color: white;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cartView h2 {
+  margin: 5px auto 30px;
+  text-align: left;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #646464;
+}
+
+.cartProducts {
+  width: 700px;
+  height: auto;
+  float: left;
+  padding: 20px 0 20px 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cartProduct {
+  width: 100%;
+  height: 150px;
+  float: left;
+  margin: 0 0 15px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.cartProductImg {
+  width: 100px;
+  height: 150px;
+  float: left;
+}
+
+.cartProductImg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cartProductText {
+  width: 350px;
+  height: 100%;
+  margin-left: 30px;
+  float: left;
+}
+
+.cartProductText h3 {
+  width: 100%;
+  height: 25px;
+  margin: 5px 0;
+}
+
+.cartProductText p {
+  width: 100%;
+  height: 115px;
+  margin: 10px 0;
+}
+
+.cartProductQty {
+  width: 120px;
+  height: 100%;
+  float: left;
+}
+
+.cartProductQty h3 {
+  margin: 5px 0;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
+}
+
+.deleteFromCartBtn {
+  width: 30px;
+  height: 30px;
+  float: left;
+
+  position: relative;
+  top: 40px;
+
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.deleteFromCartIcon {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+.cartTotal {
+  width: 500px;
+  height: 400px;
+  float: left;
+  margin: 0;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cartEnd {
+  width: 100%;
+  height: 60px;
+
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+
+  background-color: #b4b4b4;
+  border: none;
+  cursor: pointer;
+}
+
+.cartMessage {
+  width: 800px;
+  height: auto;
+  margin: 200px auto 50px;
+}
+
+.cartMessage a {
+  width: 200px;
+  height: 50px;
+  display: block;
+  margin: 20px auto;
+
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  line-height: 45px;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+
+  background-color: #282c34;
   box-sizing: border-box;
   overflow: hidden;
 }

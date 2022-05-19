@@ -11,6 +11,7 @@ import HomeContainer from './components/HomeContainer';
 
 import CartProvider from './context/CartContext';
 import AppContextProvider from './context/AppContext';
+import Cart from './components/Cart';
 
 function App() {
 
@@ -46,7 +47,7 @@ function App() {
 
                         <Route path='/item/:filmId' element={<ItemDetailContainer/>}/>
 
-                        <Route path='/cart' element={'completar'}/>
+                        <Route path='/cart' element={<Cart></Cart>}/>
                     </Routes>
 
                 </BrowserRouter>

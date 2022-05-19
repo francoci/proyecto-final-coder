@@ -7,6 +7,8 @@ export const useCartContext = () => useContext(CartContext);
 const CartProvider = ({ children }) => {
   
     const [cart, setCart] = useState([])
+    const [total, setTotal] = useState(0)
+    const [totalQty, setTotalQty] = useState(0)
     
     // Funcion para validar si el item esta en el carrito
     const isInCart = ( itemId ) => {
@@ -71,15 +73,41 @@ const CartProvider = ({ children }) => {
         setCart([]);
     }
 
+    const getTotal = () => {
+        const newCart = [...cart];
+        let subtotal = 0;
+
+        newCart.forEach(item => 
+            subtotal += item.qty * item.price
+        );
+        
+        setTotal(subtotal);
+    }
+
+    const getTotalQty = () => {
+        const newCart = [...cart];
+        let subtotal = 0;
+
+        newCart.forEach(item => 
+            subtotal += item.qty
+        );
+        
+        setTotalQty(subtotal);
+    }
+
     const context = {
       cart,
       addItem,
       removeItem,
       clear,
-      isInCart
+      isInCart,
+      getTotal,
+      total,
+      getTotalQty,
+      totalQty
     }
     
-    console.log(cart);
+    // console.log(cart);
 
     return (
       <CartContext.Provider value={ context }>
