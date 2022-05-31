@@ -1,0 +1,122 @@
+.filmContainer {
+    width: 210px;
+    height: 385px;
+  
+    margin: 0 0 50px 30px;
+    padding: 0 0 20px 0;
+    float: left;
+    
+    border-radius: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+  
+.filmContainer:nth-of-type(4n+1){
+    margin-left: 0;
+}
+  
+.filmImg {
+    width: 210px;
+    height: 325px;
+}
+  
+.filmImg img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+  
+.filmText {
+    width: 100%;
+    height: 240px;
+    padding: 5px 15px;
+    margin: 0 auto;
+  
+    position: relative;
+    top: 0;
+  
+    background-color: #3C4450;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.filmText h4,
+.filmText p {
+    color: #9ab;
+    text-align: center;
+}
+  
+.filmText h4 {
+    height: 20px;
+    margin: 20px 0;
+    font-weight: 400;
+}
+  
+.price {
+    margin: 10px 0;
+}
+  
+.filmText p {
+    height: 50px;
+    margin: 0 0 10px 0;
+    font-weight: 200;
+}
+  
+.filmContainer:hover .filmText {
+    top: -180px;
+    transition: all 0.5s ease;
+}
+  
+.filmContainer:hover {
+    border: 3px solid #00e054;
+    transition: border .1s linear;
+}
+  
+.filmContainer:hover .filmImg img {
+    transform: scale(1.1);
+    filter: blur(2px);
+    transition: all 0.5s ease;
+}
+  
+.filmText a {
+    width: 120px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+  
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
+  
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    letter-spacing: 0.01rem;
+    text-transform: uppercase;
+    
+    background-color: #1E2226;
+    border-radius: 5px;
+    cursor: pointer;
+} 
+
+.navigationContainer {
+    width: 100%;
+    height: 40px;
+    margin: 15px 0;
+}
+  
+.navigationContainer a, span {
+    color: #9ab;
+    font-weight: 600;
+    font-size: 18px;
+    
+    text-decoration: none;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease;
+}
+
+.navigationContainer a:hover {
+    color: white;
+}

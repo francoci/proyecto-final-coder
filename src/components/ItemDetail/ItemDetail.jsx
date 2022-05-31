@@ -1,8 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from './ItemCount';
 
-import { useCartContext } from "../context/CartContext";
+import { useCartContext } from "../../context/CartContext";
 
 const ItemDetail = ({filmData}) => {
 
@@ -14,6 +14,7 @@ const ItemDetail = ({filmData}) => {
 
     setQty(quantityToAdd);
 		addItem(filmData, quantityToAdd);
+    
   }
 
   return (

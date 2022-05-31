@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import { films as filmsData} from "../data/films";
 import ItemDetail from "./ItemDetail";
-import { getFirestore, doc, getDoc, getDocs, query, collection, where, limit } from "firebase/firestore";
+import { getFirestore, getDocs, query, collection, where, limit } from "firebase/firestore";
+
+import './ItemDetail.css';
 
 const ItemDetailContainer = () => {
 
@@ -38,8 +39,7 @@ const ItemDetailContainer = () => {
     <div>
         {
             loading ?
-
-                // Loader visible
+            
                 <div className='loader'>
                     <span></span>
                     <span></span>

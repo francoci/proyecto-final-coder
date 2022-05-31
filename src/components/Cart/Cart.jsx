@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from "react-router-dom";
-import { useCartContext } from '../context/CartContext';
+import { useCartContext } from '../../context/CartContext';
 
 import CartItems from './CartItems';
+import './Cart.css';
 
 const Cart = () => {
 
-    // Traigo el carrito desde el cart context
-    const { cart, total, getTotal, removeItem } = useCartContext();
-
-    useEffect(() => {
-        getTotal();
-    }, [cart])
+    const { cart, getTotal, getTotalQty, removeItem } = useCartContext();
 
     const onRemove = (itemId) => {
         removeItem(itemId);
@@ -27,7 +23,7 @@ const Cart = () => {
                 <Link to='/category/0'>Ir a home</Link>
             </div> 
             :
-            <CartItems cart={cart} total={total} onRemove={onRemove}></CartItems>
+            <CartItems cart={cart} total={getTotal()} onRemove={onRemove} totalQty={getTotalQty()}></CartItems>
         }
             
         </>

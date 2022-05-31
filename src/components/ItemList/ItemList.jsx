@@ -1,24 +1,17 @@
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { films as filmsData } from "../data/films";
-import { genres as genresData } from "../data/genres";
 import Item from "./Item";
 
-import { getFirestore, doc, getDoc, getDocs, query, collection, where } from "firebase/firestore";
+import { getFirestore, getDocs, query, collection, where, limit } from "firebase/firestore";
 
-const ItemList = () => {
+const ItemList = ({greeting}) => {
 
-    // Defino useParams para filtrar por genero
     const { filmGenre } = useParams();
 
-    // Defino los state
     const [films, setFilms] = useState([]);
     const [loading, setLoading] = useState( true );
     const [navigation, setNavigation] = useState( <span>| Películas |</span> );
-    const [genreCaption, setGenreCaption] = useState('');
 
-    // Use effect para traer los datos de las peliculas
-    // Se ejecuta en el montado
     useEffect(() => {
 
         const db = getFirestore();
@@ -43,6 +36,7 @@ const ItemList = () => {
         else 
         {
             const filmsCollection = collection(db, "items");
+            const genresCollection = collection(db, "genres");
 
             const q = query(
                 filmsCollection, 
@@ -57,26 +51,35 @@ const ItemList = () => {
                 
             });
 
-            setNavigation( 
-                <>
-                    <span>| </span>
-                    <Link to={'/category/0'}>Películas</Link> 
-                    <span> | {genresData.find(g => g.id == filmGenre).caption}</span>
-                </>
+            const q2 = query(
+                genresCollection, 
+                where('id', '==', `${filmGenre}`),
+                limit(1)
             );
+
+            getDocs(q2).then((snapshot) => {
+
+                if(snapshot.size > 0) {
+                    setNavigation( 
+                        <>
+                            <span>| </span>
+                            <Link to={'/category/0'}>Películas</Link> 
+                            <span> | {snapshot.docs[0].data().caption}</span>
+                        </>
+                    );
+                }
+                
+            });
+
             setLoading(false);
         }
 
     }, [filmGenre]);
 
-    // Rendereo las peliculas, usando un map para generar
-    // componentes Item, con sus props.
     return (
         <div>
             { 
                 loading ?
-
-                    // Loader visible
                     <div className='loader'>
                         <span></span>
                         <span></span>
@@ -84,8 +87,8 @@ const ItemList = () => {
                     </div>
 
                 :
-                    // Loader oculto
                     <div className="msgContainer">
+                        <h2>{ greeting }</h2>
 
                         <div className="navigationContainer">
                             {navigation}

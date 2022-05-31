@@ -2,8 +2,9 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
-const CartItems = ({cart, total, onRemove}) => {
+const CartItems = ({cart, total, onRemove, totalQty}) => {
   return (
       <>
         <div className="cartView">
@@ -25,7 +26,7 @@ const CartItems = ({cart, total, onRemove}) => {
                                 <p>{film.description}</p>
                             </div>
                             <div className="cartProductQty">
-                                <h3>x {film.qty}</h3>
+                                <h3>{film.qty} x ${film.price}</h3>
                             </div>
                             <button className="deleteFromCartBtn"
                                 onClick={() => {
@@ -43,8 +44,8 @@ const CartItems = ({cart, total, onRemove}) => {
 
             <div className="cartTotal">
                 <h2>Total</h2>
-                <h2>$ { total }</h2>
-                <button className="cartEnd">Finalizar Compra</button>
+                <h3 id="totalPrice">Items x { totalQty } - $ { total }</h3>
+                <Link to='/checkout' className="cartEnd">Finalizar Compra</Link>
             </div>
         </div>
     </>

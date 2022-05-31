@@ -1,3 +1,5 @@
+import './ItemList.css';
+
 const ItemListContainer = (props) => {
 
     return(

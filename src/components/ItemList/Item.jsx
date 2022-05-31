@@ -14,6 +14,7 @@ const Item = ({filmData}) => {
                 <h4 className="price">$ {filmData.price}</h4>
                 <Link to={`/item/${filmData.id}`}>Ver más</Link>
             </div>
+            
         </div>
     )
 }
