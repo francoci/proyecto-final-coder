@@ -58,7 +58,7 @@ const ItemDetailContainer = () => {
                 : <div className="msgContainer">
                     <h2>Oops, hubo un error.</h2>
                     <h3>Producto no encontrado.</h3>
-                    <Link to='/'>Ir a Home</Link>
+                    <Link to='/' className="homeBtn">Ir a Home</Link>
                   </div>
         }
         

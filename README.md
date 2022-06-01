@@ -1,6 +1,6 @@
 # Proyecto final Coderhouse
 ## Introducción
-Proyecto final realizado para el curso de React de Coderhouse. Se trata del frontend de un ecommerce de venta de películas. Las mismas pueden ser filtradas por género, se pueden agregar al carrito y comprarlas mediante un formulario de checkout.
+Proyecto final realizado para el curso de React de Coderhouse. Se trata del frontend de un ecommerce de venta de películas. Las mismas pueden ser filtradas por género, se pueden agregar al carrito y comprarlas mediante un formulario de checkout. El proyecto se llama Letterboxd, siguiendo el nombre del [sitio]("https://letterboxd.com/") del mismo nombre para loguear películas. Aunque la funcionalidad es distinta, decidí utilizar el logo y emular dentro de lo posible la estética de ese sitio
 
 ## Instalación y uso
 ### Vercel
