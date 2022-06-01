@@ -48,7 +48,7 @@ form {
     
     color: #9ab;
     font-size: 22px;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 0.215rem;
 }
@@ -83,6 +83,14 @@ form {
     font-size: 12px;
     font-weight: 600;
     text-align: left;
+}
+
+.midLabel {
+    width: 40% !important;
+}
+
+.midError {
+    width: 60% !important;
 }
 
 .longLabel {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { getFirestore, getDocs, query, collection, where, limit } from "firebase/firestore";
 
@@ -10,6 +10,7 @@ const ItemDetailContainer = () => {
     const { filmId } = useParams();
     const [ film, setFilm ] = useState([{}]);
     const [loading, setLoading] = useState( true );
+    const [productExists, setProductExists] = useState( true );
 
     useEffect( () => {
 
@@ -29,8 +30,14 @@ const ItemDetailContainer = () => {
                 const filmData = snapshot.docs.map((doc) => ({ id : doc.id, ...doc.data() }));
                 setFilm(filmData);
             }
+            else 
+            {
+                setProductExists( false );
+            }
             
             setLoading(false);
+        }).catch((err) => {
+            setProductExists( false );
         });
 
     }, [filmId]);
@@ -46,8 +53,13 @@ const ItemDetailContainer = () => {
                     <span></span>
                 </div>
 
-            :
+            : productExists ?
                 <ItemDetail key={film.id} filmData={film[0]}/>
+                : <div className="msgContainer">
+                    <h2>Oops, hubo un error.</h2>
+                    <h3>Producto no encontrado.</h3>
+                    <Link to='/'>Ir a Home</Link>
+                  </div>
         }
         
     </div>

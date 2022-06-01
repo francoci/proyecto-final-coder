@@ -1,6 +1,6 @@
 # Proyecto final Coderhouse
 ## Introducción
-Proyecto final realizado para el curso de React de Coderhouse. Se trata del frontend de un ecommerce de venta de películas. 
+Proyecto final realizado para el curso de React de Coderhouse. Se trata del frontend de un ecommerce de venta de películas. Las mismas pueden ser filtradas por género, se pueden agregar al carrito y comprarlas mediante un formulario de checkout.
 
 ## Instalación y uso
 ### Vercel
@@ -11,7 +11,7 @@ Para probarlo en **modo local**, se puede clonar el repositorio con:
 
 `git clone url`
 
-Donde url se corresponde con la url del repositorio, que se puede obtener desde el boton de download. A partir de ahí, se tiene que instalar los modulos con:
+Donde *url* se corresponde con la *url* del repositorio, que se puede obtener desde el boton *Code* ubicado en la parte superior de este repositorio. A partir de ahí, se tiene que instalar los modulos con:
 
 `npm install`
 
@@ -19,10 +19,10 @@ Y por último inicializar la ejecución del proyecto con:
 
 `npm start`
 
-Este último comando inicializa la ejecución del proyecto en el **puerto 3000** (localhost:3000).
+Este último comando inicializa la ejecución del proyecto en el **puerto 3000** (localhost:3000). Las claves de acceso a firebase se encuentran en un archivo .env que no se incluye en este repositorio. Para el funcionamiento correcto de la aplicación, solicitarme las claves.
 
 ## Navegación
-El proyecto tiene una página principal (Home) con un banner tipo carousel y una versión reducida del catálogo de películas. Se puede clickear en los slides del carousel para acceder al catálogo filtrado por distintos géneros o usar los links de la barra de navegación. Para acceder al catálogo completo, se puede usar el botón *'Ver catálogo'* al fondo de la Home o el link 'Películas' de la barra de navegación.
+El proyecto tiene una página principal (Home) con un banner tipo carousel y una versión reducida del catálogo de películas. Se puede clickear en los slides del carousel para acceder al catálogo filtrado por distintos géneros o usar los links de la barra de navegación. Para acceder al catálogo completo, se puede usar el botón *'Ver catálogo'* al fondo de la Home o el link *'Películas'* de la barra de navegación.
 
 También, se puede acceder al detalle de películas individuales colocando el mouse sobre la película y haciendo click en *'Ver más'*.
 

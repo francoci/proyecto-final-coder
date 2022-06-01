@@ -1,3 +1,26 @@
+.msgContainer h3 {
+    text-align: center;
+}
+
+.msgContainer a {
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: 20px auto;
+  
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 45px;
+    text-decoration: none;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+  
+    background-color: #1E2226;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
 .filmCard {
     width: 900px;
     height: auto;

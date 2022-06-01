@@ -16,7 +16,7 @@ const CheckoutForm = ({cart, total, onCheckout}) => {
 
     const validateForm = () => {
         
-        const {name, phone, email, address, appartment, city, zipCode} = form;
+        const {name, phone, email, emailRepeat, address, appartment, city, zipCode} = form;
         const newErrors = {};
 
         if(!name || name === '') newErrors.name = 'Ingrese su nombre.'
@@ -26,7 +26,12 @@ const CheckoutForm = ({cart, total, onCheckout}) => {
         else if (!validPhone.test(phone)) newErrors.phone = 'Solo números.'
 
         if(!email || email === '') newErrors.email = 'Ingrese un email.'
-        else if (!validEmail.test(email)) newErrors.email = 'Formato de email inválido.'
+        else if (!validEmail.test(email)) newErrors.email = 'Email inválido.'
+
+        
+        if(!emailRepeat || emailRepeat === '') newErrors.emailRepeat = 'Repita el email.'
+        else if (!validEmail.test(emailRepeat)) newErrors.emailRepeat = 'Email inválido.'
+        else if (emailRepeat != email) newErrors.emailRepeat = 'Los email no coinciden.'
 
         if(!address || address === '') newErrors.address = 'Ingrese una dirección.'
         else if (!validAddress.test(address)) newErrors.address = 'Dirección inválida.'
@@ -51,8 +56,26 @@ const CheckoutForm = ({cart, total, onCheckout}) => {
         if(Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
         } else {
+
             setErrors({});
-            onCheckout(form);
+
+            const appt = (form.appartment === undefined) ? "-" : form.appartment;
+
+            var today = new Date();
+            const formatDate = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
+            const buyer = {
+                name : form.name,
+                phone : form.phone,
+                email : form.email,
+                address : form.address,
+                appartment : appt,
+                zipCode : form.zipCode,
+                city : form.city,
+                date : formatDate
+            }
+
+            onCheckout(buyer);
         }
 
         setLoading(false);
@@ -94,6 +117,15 @@ const CheckoutForm = ({cart, total, onCheckout}) => {
                         </p>
                         <input type="text" name="input-email" id="i-email" placeholder="Email"
                         onChange={(e) => setField('email', e.target.value)}/>
+                    </div>
+
+                    <div className="formFieldContainer">
+                        <label htmlFor="input-email-repeat" className="midLabel">Repetir Email *</label>
+                        <p className="errorText midError">
+                            {errors.hasOwnProperty('emailRepeat') ? errors.emailRepeat : ''}
+                        </p>
+                        <input type="text" name="input-email-repeat" id="i-email-repeat" placeholder="Email"
+                        onChange={(e) => setField('emailRepeat', e.target.value)}/>
                     </div>
 
                     <h3>Datos envio</h3>

@@ -12,6 +12,7 @@ const CheckoutFormContainer = () => {
     const { cart, getTotal, getTotalQty, clear } = useCartContext();
 
     const [orderStatus, setOrderStatus] = useState(1);
+    const [orderID, setOrderID] = useState("");
 
     useEffect(() => {
 
@@ -27,7 +28,11 @@ const CheckoutFormContainer = () => {
         const orders = collection(db, "orders");
         const orderItems = collection(db, "orderItems");
 
+        console.log(checkoutData);
+
         addDoc(orders, checkoutData).then(({id}) => {
+
+            setOrderID(id);
 
             let orderItemsObj = {
                 orderId: id,
@@ -65,7 +70,9 @@ const CheckoutFormContainer = () => {
             : orderStatus == 3 ?
             <div className="cartMessage">
                 <h2>¡Gracias por su compra!</h2>
-                <h3>Nos pondremos en contacto pronto para gestionar el envío.</h3>
+                <h3>Nos pondremos en contacto pronto para gestionar el envío.<br/>
+                Número de orden: # { orderID }
+                </h3>
                 <Link to='/category/0'>Ir a home</Link>
             </div> 
             :
