@@ -6,7 +6,7 @@ El proyecto se llama Letterboxd, siguiendo el nombre del [sitio](https://letterb
 
 ## Instalación y uso
 ### Vercel
-La aplicación está alojada en vercel y puede ser accedida y puede ser accedida en el siguiente [enlace](#).
+La aplicación está alojada en vercel y puede ser accedida y puede ser accedida en el siguiente [enlace](https://proyecto-final-coder-one.vercel.app/).
 
 ### Modo local
 Para probarlo en **modo local**, se puede clonar el repositorio con:
