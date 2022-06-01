@@ -1,6 +1,8 @@
 # Proyecto final Coderhouse
 ## Introducción
-Proyecto final realizado para el curso de React de Coderhouse. Se trata del frontend de un ecommerce de venta de películas. Las mismas pueden ser filtradas por género, se pueden agregar al carrito y comprarlas mediante un formulario de checkout. El proyecto se llama Letterboxd, siguiendo el nombre del [sitio]("https://letterboxd.com/") del mismo nombre para loguear películas. Aunque la funcionalidad es distinta, decidí utilizar el logo y emular dentro de lo posible la estética de ese sitio
+Proyecto final realizado para el curso de React de Coderhouse. Se trata del frontend de un ecommerce de venta de películas. Las mismas pueden ser filtradas por género, se pueden agregar al carrito y comprarlas mediante un formulario de checkout. 
+
+El proyecto se llama Letterboxd, siguiendo el nombre del [sitio](https://letterboxd.com/) del mismo nombre para loguear películas. Aunque la funcionalidad es distinta, decidí utilizar el logo y emular dentro de lo posible la estética de ese sitio
 
 ## Instalación y uso
 ### Vercel
@@ -19,7 +21,7 @@ Y por último inicializar la ejecución del proyecto con:
 
 `npm start`
 
-Este último comando inicializa la ejecución del proyecto en el **puerto 3000** (localhost:3000). Las claves de acceso a firebase se encuentran en un archivo .env que no se incluye en este repositorio. Para el funcionamiento correcto de la aplicación, solicitarme las claves.
+Este último comando inicializa la ejecución del proyecto en el **puerto 3000** (localhost:3000). Las claves de acceso a firebase se encuentran en un archivo .env que no se incluye en este repositorio. Para el funcionamiento correcto de la aplicación, solicitar las claves al creador del proyecto.
 
 ## Navegación
 El proyecto tiene una página principal (Home) con un banner tipo carousel y una versión reducida del catálogo de películas. Se puede clickear en los slides del carousel para acceder al catálogo filtrado por distintos géneros o usar los links de la barra de navegación. Para acceder al catálogo completo, se puede usar el botón *'Ver catálogo'* al fondo de la Home o el link *'Películas'* de la barra de navegación.
